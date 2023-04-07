@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow: hidden;
+}
+
+.slider-width {
+  width: calc(100vw - 7rem);
+}
+
+.single-heigth {
+  height: calc(100vh - 14rem);
+}
+
+.w-content {
+  width: calc(100vw - 5rem);
+}
+
+/* Range Slider as a Single Thumb Slider */
+.range-slider {
+  height: 4px !important;
+  @apply bg-gray-300 dark:bg-white/20;
+}
+
+.single-thumb .range-slider__thumb[data-lower] {
+  width: 0;
+}
+.single-thumb .range-slider__range {
+  border-radius: 0px;
+}
+.single-thumb .range-slider__thumb {
+  width: 8px;
+  height: 8px;
+  opacity: 0;
+  @apply transition-opacity;
+}
+
+.range-slider:hover .range-slider__thumb {  
+  opacity: 1 !important;
+}
