@@ -1,0 +1,98 @@
+{
+  "name": "music-player-pro-react",
+  "version": "0.1.0",
+  "author": "Jefrien Alvizures",
+  "description": "An example Electron app",
+  "private": true,
+  "main": "public/electron.js",
+  "homepage": "./",
+  "dependencies": {
+    "@headlessui/react": "^1.7.13",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "amplitude-js": "^8.21.7",
+    "amplitudejs": "^5.3.2",
+    "cheerio": "^1.0.0-rc.12",
+    "concurrently": "^7.6.0",
+    "cors": "^2.8.5",    
+    "electron-is-dev": "^2.0.0",
+    "electron-json-storage": "^4.6.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "express": "^4.18.2",
+    "framer-motion": "^10.9.1",
+    "jsmediatags": "^3.9.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-perfect-scrollbar": "^1.5.8",
+    "react-range-slider-input": "^3.0.7",
+    "react-router-dom": "^6.9.0",
+    "react-scripts": "5.0.1",
+    "react-slick": "^0.29.0",
+    "swiper": "^9.1.1",
+    "wait-on": "^7.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "electron-forge start",
+    "build": "react-scripts build",
+    "server": "node ./server",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "dev": "concurrently -k \"npm start\" \"npm:electron\"",
+    "electron": "wait-on tcp:3000 && electron .",
+    "package": "electron-forge package",
+    "make": "react-scripts build && electron-forge make",
+    "electron:package:win": "npm run build && electron-builder -w -c.extraMetadata.main=build/electron.js"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.5",
+    "@electron-forge/maker-deb": "^6.0.5",
+    "@electron-forge/maker-rpm": "^6.0.5",
+    "@electron-forge/maker-squirrel": "^6.0.5",
+    "@electron-forge/maker-zip": "^6.0.5",
+    "electron": "^23.2.0",
+    "electron-packager": "^17.1.1",
+    "tailwindcss": "^3.2.7",
+    "electron-builder": "^23.6.0"
+  },
+  "build": {
+    "appId": "site.jefrien.music_pro_player",
+    "productName": "Music Pro Player",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "server/**/*"
+    ],
+    "directories": {
+      "buildResources": "public"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "deb"
+    }
+  }
+}
